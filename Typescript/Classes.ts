@@ -7,9 +7,21 @@ class Employee {
     empId:number; 
     empName:string;
     empSalary:number;
+
+    constructor(){
+        console.log("in def constructor");   
+        this.empId=0; 
+        this.empName="AAA";
+        this.empSalary=1000;
+    }
+    //Multiple constructor implementations are not allowed.
 }// Employee body ended
 
 let emp1:Employee;
 emp1=new Employee(); // def constructor
+console.log(emp1.empId);
+console.log(emp1.empName);
+console.log(emp1.empSalary);
+
 
 let emp2=new Employee();

@@ -23,5 +23,4 @@ console.log(emp1.empId);
 console.log(emp1.empName);
 console.log(emp1.empSalary);
 
-
 let emp2=new Employee();

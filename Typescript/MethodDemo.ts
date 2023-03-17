@@ -23,7 +23,8 @@ class Employee {
         return 0.1*this.empSalary;
     }
     getDetails():string{
-        return "ID="+this.empId+" NAME="+this.empName+" SALARY="+this.empSalary; // string concatenation
+        //return "ID="+this.empId+" NAME="+this.empName+" SALARY="+this.empSalary; // string concatenation
+        return  `ID=${this.empId} NAME=${this.empName} SALARY=${this.empSalary}`
     }
 }
 
@@ -33,7 +34,7 @@ console.log(emp1.getDetails());
 console.log("TA of  employee "+emp1.empId+" is "+emp1.getTA());
 
 console.log(emp2.getDetails());
-console.log("TA of  employee "+emp2.empId+" is "+emp2.getTA());
+console.log(`TA of  employee ${emp2.empId} is ${emp2.getTA()}`);
 
 let olNode=document.createElement('ol');
 let liNode1=document.createElement('li');

@@ -34,8 +34,23 @@ var olNode = document.createElement('ol');
 var liNode1 = document.createElement('li');
 var liNode2 = document.createElement('li');
 var liNode3 = document.createElement('li');
-liNode1.textContent = emp1.empId + "";
+liNode1.textContent = "ID=" + emp1.empId;
 liNode2.textContent = emp1.empName;
 liNode3.textContent = emp1.empSalary + "";
 olNode.append(liNode1, liNode2, liNode3);
 document.body.append(olNode);
+olNode.style.border = "4px double green";
+console.log(emp1.empId);
+// for in loop
+console.log("employee display...");
+for (var key in emp1) {
+    console.log(key);
+    console.log(emp1[key]);
+}
+var olNode2 = document.createElement('ul');
+for (var key in emp2) {
+    var liNode = document.createElement('li');
+    liNode.textContent = "ID=" + emp1[key];
+    olNode2.append(liNode);
+}
+document.body.append(olNode2);

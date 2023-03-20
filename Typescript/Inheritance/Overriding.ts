@@ -51,3 +51,16 @@ neoEmp=new NeoTrainer(999,'Janvhi',34000,10,['java','python']);
 let d2=neoEmp.getDetails();  // trainer function
 console.log(d2);
 
+
+let emp1=new NeoEmployee(1,'Karuna',56000);
+showDetails(emp1);
+let tr1=new NeoTrainer(2,'kalpesh',34000,22,[]);
+showDetails(tr1);
+
+function showDetails(ob:NeoEmployee){
+    // call getDetails function
+    // if trainer object then trainer getDetails to be called
+    // if employee object then employee getDetails to be called
+    ob.getDetails();
+}
+

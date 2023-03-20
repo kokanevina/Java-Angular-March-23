@@ -2,6 +2,7 @@ class A{
      getObject(n:number) : NeoEmployee{
         return new NeoEmployee();
     }
+    
 }
 class B extends A{ 
     public getObject() : NeoTrainer{
@@ -24,3 +25,24 @@ class B extends A{
 
  a=new B();
  a.getObject(45);
+
+
+
+ class Father{
+    dream(){
+        return "Doctor";
+    }
+ }
+
+ class Mother{
+    dream (){
+        return "Engineer";
+    }
+ }
+
+ class Child extends Mother{
+
+    achieveDream(){
+        this.dream();
+    }
+ }

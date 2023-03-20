@@ -1,2 +1,6 @@
 Create One more subclass of NeoEmployee.
 And cover all concepts learned in session like super use, overriding, upcasting
+
+Assign id to Employee as autoincrement when Employee object gets created.
+ ids should be NEO1,NEO2, NEO3.... and so on
+Hint: use static counter

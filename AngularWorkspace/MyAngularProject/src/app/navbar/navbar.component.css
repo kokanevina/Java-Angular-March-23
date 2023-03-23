@@ -1,0 +1,15 @@
+.myNav{
+    border: 3px solid pink;
+    background-color: black;
+    color: white;
+}
+.myFlex{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+
+.myFlex li a{
+    color: white;
+}

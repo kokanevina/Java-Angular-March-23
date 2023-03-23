@@ -4,9 +4,56 @@
     <h2>Without Form tag (ngModel)</h2>
     <div>
         <label>Enter Username</label>
-        <input type="text" [(ngModel)]="username"> 
+        <input type="text" [(ngModel)]="username" (keyup)="collectData()"> 
+    </div>
+    <div>
         <label>Enter Password</label>
-        <input type="password" [(ngModel)]="password">
+        <input type="password" [(ngModel)]="password" (keyup)="collectData()">
+    </div>
+    <div>
+        <label>Enter Age</label>
+        <input type="number" [(ngModel)]="age" (keyup)="collectData()">
+    </div>
+    <div>
         <button (click)="collectData()">SUBMIT</button>
     </div>
+</div>
+
+<div>
+    <h2>Without Form tag (without ngModel) (template reference variables)</h2>
+    <div>
+        <label>Enter Username</label>
+        <input type="text" #unameNode> 
+    </div>
+    <div>
+        <label>Enter Password</label>
+        <input type="password" #passNode>
+    </div>
+    <div>
+        <label>Enter age</label>
+        <input type="number" #ageNode>
+    </div>
+    <div>
+        <button (click)="collectData2(unameNode.value,passNode.value,ageNode.value)">SUBMIT</button>
+    </div>
+</div>
+<div>
+    <h2>With Form tag (ngModel) (Template Driven Forms)</h2>
+    <form #loginForm="ngForm" (submit)="collectData3(loginForm)">
+        <div>
+            <label>Enter Username</label>
+            <input type="text" [(ngModel)]="username" name="username" (keyup)="collectData()"> 
+        </div>
+        <div>
+            <label>Enter Password</label>
+            <input type="password" [(ngModel)]="password" name="password" (keyup)="collectData()">
+        </div>
+        <div>
+            <label>Enter Age</label>
+            <input type="number" [(ngModel)]="age" name="age" (keyup)="collectData()">
+        </div>
+        <div>
+            <input type="submit" value="LOGIN">
+        </div>
+    </form>
 </div>

@@ -16,3 +16,23 @@ plethora of solutions which makes the work easier and faster.
 <br>
 <input type="text" [(ngModel)]="systemType" (blur)="display()"> <!-- View side model: systemType:updated-->
 </p>
+<div>
+    <h2>Book Input Form</h2>
+    <div>
+        <label>Enter Book Id</label>
+        <input type="number" [(ngModel)]="book.bookId">
+    </div>
+    <div>
+        <label>Enter Book Name</label>
+        <input type="text"  [(ngModel)]="book.bookName">
+    </div>
+    <div>
+        <label>Enter Book Price</label>
+        <input type="number"  [(ngModel)]="book.bookPrice">
+    </div>
+    <div>
+        <label>Enter Book Published Date</label>
+        <input type="date"  [(ngModel)]="book.publishedDate">
+    </div>
+    <button (click)="addBook()">COLLECT BOOK DETAILS</button>
+</div>

@@ -9,6 +9,11 @@ export class NavbarComponent {
   links="Navigation Bar"
 
   classArray=['colorClass', 'decorationClass', 'fontClass'];
+  classObject={
+    'colorClass':true,
+    'decorationClass':true,
+    'fontClass':false
+  }
   ngOnInit(){
     setInterval(()=>this.addremove(),3000);
   }

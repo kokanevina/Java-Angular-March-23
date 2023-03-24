@@ -36,3 +36,66 @@ plethora of solutions which makes the work easier and faster.
     </div>
     <button (click)="addBook()">COLLECT BOOK DETAILS</button>
 </div>
+<div>
+    <h3>BOOK DETAILS</h3>
+    <table border="3">
+        <thead>
+            <tr><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray">
+                <td>{{bk.bookId}}</td>
+                <td>{{bk.bookName}}</td>
+                <td>{{bk.bookPrice}}</td>
+                <td>{{bk.publishedDate}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <table border="3">
+        <thead>
+            <tr><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray">
+                <span *ngIf="bk.bookName.toLowerCase().includes('java') then bookthenpart else bookelsepart"></span>
+                <ng-template #bookthenpart>
+                     <td>{{bk.bookId}}</td>
+                    <td>{{bk.bookName}}</td>
+                    <td>{{bk.bookPrice}}</td>
+                    <td>{{bk.publishedDate}}</td>
+                </ng-template> 
+                <ng-template #bookelsepart>
+
+                </ng-template>
+            </tr> 
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>VOTER FORM</h3>
+    <label>Enter Age:</label>
+    <input type="number" [(ngModel)]="age">
+    <p *ngIf="age>=18">YOU ARE ALLOWED FOR VOTING</p> 
+    <p *ngIf="age<18">SORRY!!! YOU ARE NOE ALLOWED FOR VOTING...</p>
+   <hr>
+    <p *ngIf="age>=18 else voteelsepart">YOU ARE ALLOWED FOR VOTING</p>
+   <ng-template #voteelsepart>
+    <p>
+        SORRY!!! YOU ARE NOE ALLOWED FOR VOTING..
+    </p>
+    <p>
+        Because your age is below 18
+    </p>
+  </ng-template>
+<hr>
+ <b *ngIf="age>=18 then votethenpart; else voteelsepart2"></b> <!-- b is not part of DOM-->
+  <ng-template #votethenpart>
+       <p><i>YOU ARE ALLOWED FOR VOTING</i></p>
+  </ng-template>
+  <ng-template #voteelsepart2>
+    <p>
+        <i>SORRY!!! YOU ARE NOE ALLOWED FOR VOTING..</i>
+    </p>
+  </ng-template>
+
+</div>

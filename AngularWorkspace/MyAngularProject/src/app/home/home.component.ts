@@ -8,6 +8,7 @@ import { Book } from '../classes/book';
 })
 export class HomeComponent {
   systemType="distributed system";
+  age=0;
   ngOnInit(){
     console.log("In Home Component init method");
     console.log(this.systemType);
@@ -20,9 +21,14 @@ export class HomeComponent {
   }
 
   book=new Book();
-  
+  bookArray=new Array<Book>();
   addBook(){
-    console.log(this.book);
-    
+   let book1=new Book(this.book.bookId,this.book.bookName,this.book.bookPrice,this.book.publishedDate);
+    this.bookArray.push(book1);
+    console.log("Array Contents are:");
+    console.log(this.bookArray);
+    // forEach function is part of js
+    // no need to use for loop / for of loop
+    this.bookArray.forEach(bk=>console.log(bk)) // on console
   }
 }

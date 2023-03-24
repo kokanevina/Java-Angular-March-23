@@ -9,4 +9,9 @@ export class Book {
         this.bookPrice=price;
         this.publishedDate=date;
     }
+
+    // instance methods
 }
+
+
+

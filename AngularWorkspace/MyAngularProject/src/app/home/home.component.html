@@ -110,3 +110,11 @@ plethora of solutions which makes the work easier and faster.
         <p *ngSwitchDefault>Wrong Input</p>
     </div>
 </div>
+<div>
+    <h2>Display Image</h2>
+    <img [src]="imageObject.imageSource" [height]="imageObject.imageHeight" [width]="imageObject.imageWidth">
+
+    <input [type]="nodeType">
+    <button (click)="changeType()">CLICK</button>
+    <input type="checkbox" (change)="changeType1($event)"> <label>:SHOW PASSWORD</label>
+</div>

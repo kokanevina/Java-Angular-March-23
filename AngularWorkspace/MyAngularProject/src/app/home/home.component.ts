@@ -10,6 +10,12 @@ export class HomeComponent {
   systemType="distributed system";
   age=0;
   percentage=0;
+  imageObject={
+    imageSource:'https://picsum.photos/id/1/200/300',
+    imageHeight: 300,
+    imageWidth : 400
+  }
+
   ngOnInit(){
     console.log("In Home Component init method");
     console.log(this.systemType);
@@ -32,6 +38,15 @@ export class HomeComponent {
     // no need to use for loop / for of loop
     this.bookArray.forEach(bk=>console.log(bk)) // on console
   }
-
-
+  nodeType="password";
+  changeType(){
+    this.nodeType='text';
+  }
+  
+  changeType1(ev:any){
+    if(ev.target.checked)
+      this.nodeType="text";
+    else  
+      this.nodeType="password";
+  }
 }

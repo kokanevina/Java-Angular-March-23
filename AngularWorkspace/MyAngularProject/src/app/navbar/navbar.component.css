@@ -13,3 +13,16 @@
 .myFlex li a{
     color: white;
 }
+
+.colorClass{
+    background-color: gray;
+    color:blue;
+}
+.decorationClass{
+    padding: 10px;
+    border: 2px yellow solid;
+}
+.fontClass{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}

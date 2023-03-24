@@ -1,7 +1,7 @@
 <nav class="myNav">
     <h3>{{links}}</h3>
     <ol class="myFlex">
-        <li><a routerLink="home">HOME</a> </li>
-        <li><a routerLink="login">LOGIN</a></li>         
+        <li class="colorClass decorationClass fontClass"><a routerLink="home">HOME</a> </li>
+        <li [ngClass]="classArray"><a routerLink="login">LOGIN</a></li>         
     </ol>
 </nav>

@@ -1,0 +1,8 @@
+You already have a book array. Add atleast 10 books in book array.
+Give yellow background for rows having book Java
+Give Green background for rows having book Python
+Given blue background to rows having book React
+Give pink background for rest (remaining) books rows
+
+use attribute directive ngStyle along with Structural directive ngSwitch and ngSwitchCase
+if u want to implement switch case in ts file u can.

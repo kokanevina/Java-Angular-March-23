@@ -7,4 +7,22 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 projectName="EMPLOYEE MANAGEMENT";
+
+  headStyleObject={
+      backgroundColor:'grey',
+      color :'yellow',
+      textAlign:'center'
+  }
+
+  colorArray=['#68B39F','#916D1A' ,'#D55B2E','hotpink','red']
+  i=0;
+  ngOnInit(){
+      setInterval(()=> this.changeColor(), 1000);
+  }
+  changeColor(){
+    this.headStyleObject.color=this.colorArray[this.i];
+    this.i++;
+    if(this.i==this.colorArray.length)
+      this.i=0;
+  }
 }

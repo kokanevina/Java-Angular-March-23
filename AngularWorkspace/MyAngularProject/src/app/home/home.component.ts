@@ -9,6 +9,7 @@ import { Book } from '../classes/book';
 export class HomeComponent {
   systemType="distributed system";
   age=0;
+  percentage=0;
   ngOnInit(){
     console.log("In Home Component init method");
     console.log(this.systemType);
@@ -31,4 +32,6 @@ export class HomeComponent {
     // no need to use for loop / for of loop
     this.bookArray.forEach(bk=>console.log(bk)) // on console
   }
+
+
 }

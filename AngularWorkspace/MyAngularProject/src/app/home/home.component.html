@@ -99,3 +99,14 @@ plethora of solutions which makes the work easier and faster.
   </ng-template>
 
 </div>
+<div>
+<label>Enter your percentage:</label>
+<input type="number" [(ngModel)]="percentage">
+    <div [ngSwitch]="true">
+        <p *ngSwitchCase="percentage>=70 && percentage<=100">Your are passed with Disinction</p>
+        <p *ngSwitchCase="percentage<70 && percentage>=60">Your are passed with First Class</p>
+        <p  *ngSwitchCase="percentage<60 && percentage>=40">Your are passed with Second Class</p>
+        <p  *ngSwitchCase="percentage<40">Your are Failed</p>
+        <p *ngSwitchDefault>Wrong Input</p>
+    </div>
+</div>

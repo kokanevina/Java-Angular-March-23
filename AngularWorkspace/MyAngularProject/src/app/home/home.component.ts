@@ -28,7 +28,12 @@ export class HomeComponent {
   }
 
   book=new Book();
-  bookArray=new Array<Book>();
+  bookArray=new Array<Book>(new Book(2,"LeArn JavA",560.76,new Date('2 Feb 2000')),
+  new Book(5,"JAVA Basics",660567.653897,new Date('20 Feb 2000')),
+  new Book(4,"web Basics",566.12349,new Date('12 Jan 2001')),
+  new Book(12,"Easy LearNing Python",460.2,new Date('20 March 2004')),
+  new Book(1,"Web FundaMENtals",650.456,new Date('15 March 2004')));
+  
   addBook(){
    let book1=new Book(this.book.bookId,this.book.bookName,this.book.bookPrice,this.book.publishedDate);
     this.bookArray.push(book1);

@@ -113,8 +113,60 @@ plethora of solutions which makes the work easier and faster.
 <div>
     <h2>Display Image</h2>
     <img [src]="imageObject.imageSource" [height]="imageObject.imageHeight" [width]="imageObject.imageWidth">
-
     <input [type]="nodeType">
     <button (click)="changeType()">CLICK</button>
     <input type="checkbox" (change)="changeType1($event)"> <label>:SHOW PASSWORD</label>
+</div>
+<hr>
+<div>
+    <h2>WORKING WITH PIPES</h2>
+    <h3>uppercase, lowercase, titlecase,slice pipe</h3>
+    <table border="3">
+        <thead>
+            <tr><th>Book Name</th><th>uppercase</th><th>lowercase</th>
+                <th>title case</th> <th>slice</th> <th>slice</th> <th>slice</th></tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray">
+                <td>{{bk.bookName }}</td>
+                <td>{{bk.bookName | uppercase}}</td>
+                <td>{{bk.bookName | lowercase}}</td>
+                <td>{{bk.bookName | titlecase}}</td>
+                <td>{{bk.bookName | slice:3}}</td>
+                <td>{{bk.bookName | slice:4:8}}</td>
+                <td>{{bk.bookName | slice:-3}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <h3>number, currency pipe</h3>
+    <table border="3">
+        <thead>
+            <tr><th>Book Price</th><th>number pipe</th><th>number pipe</th>
+               </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray">
+                <td>{{bk.bookPrice}}</td>
+                <td>{{bk.bookPrice |number}}</td> <!-- maximum 3 d after d.p.-->
+                <td>{{bk.bookPrice |number: '4.1-2'}}</td>
+                <td>{{bk.bookPrice | currency}}</td>  <!-- $, exact 2 d after d.p.-->
+                <td>{{bk.bookPrice | currency : 'INR'}}</td>
+                <td>{{bk.bookPrice | currency : 'INR' : 'code' }}</td>
+                <td>{{bk.bookPrice | currency : 'INR' : 'code' : '5.1-4'}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <table border="3">
+        <thead>
+            <tr><th>DATE</th>
+               </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray">
+                <td>{{bk.publishedDate}}</td>
+                <td>{{bk.publishedDate | date}}</td>
+                <td>{{bk.publishedDate | date: 'short'}}</td>
+            </tr> 
+        </tbody>
+    </table>
 </div>

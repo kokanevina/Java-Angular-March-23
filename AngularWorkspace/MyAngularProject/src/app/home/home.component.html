@@ -163,9 +163,58 @@ plethora of solutions which makes the work easier and faster.
         </thead>
         <tbody>
             <tr  *ngFor="let bk of bookArray">
-                <td>{{bk.publishedDate}}</td>
-                <td>{{bk.publishedDate | date}}</td>
+                <td>{{bk.publishedDate}}</td> <!-- full-->
+                <td>{{bk.publishedDate | date}}</td> <!-- medium date-->
+                <td>{{bk.publishedDate | date: 'mediumDate'}}</td>
+                <td>{{bk.publishedDate | date: 'shortDate'}}</td>
+                <td>{{bk.publishedDate | date: 'longDate'}}</td>
+                <td>{{bk.publishedDate | date: 'fullDate'}}</td>
+                <td>{{bk.publishedDate | date: 'mediumTime'}}</td>
+                <td>{{bk.publishedDate | date: 'shortTime'}}</td>
+                <td>{{bk.publishedDate | date: 'fullTime'}}</td>
+                <td>{{bk.publishedDate | date: 'medium'}}</td>
                 <td>{{bk.publishedDate | date: 'short'}}</td>
+                <td>{{bk.publishedDate | date: 'full'}}</td>
+                <td>{{bk.publishedDate | date: 'dd/MM/yyyy'}}</td>
+            </tr> 
+        </tbody>
+    </table>
+</div>
+<div>
+    <h2>original array</h2>
+    <b *ngFor="let num of numArray" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
+    <h2>sorted array</h2>
+    <b *ngFor="let num of numArray | orderBy" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
+    <h2>sorted array</h2>
+    <b *ngFor="let num of numArray | orderBy :'':true" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
+</div>
+<div>
+    <table border="3">
+        <thead>
+            <tr><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray ">
+                     <td>{{bk.bookId}}</td>
+                    <td>{{bk.bookName}}</td>
+                    <td>{{bk.bookPrice}}</td>
+                    <td>{{bk.publishedDate}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <table border="3">
+        <thead>
+            <tr><th (click)="makeOrder('bookId')">ID</th>
+                <th (click)="makeOrder('bookName')">NAME</th>
+                <th (click)="makeOrder('bookPrice')">PRICE</th>
+                <th (click)="makeOrder('publishedDate')">Published Date</th></tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray | orderBy :sortProperty">
+                     <td>{{bk.bookId}}</td>
+                    <td>{{bk.bookName}}</td>
+                    <td>{{bk.bookPrice}}</td>
+                    <td>{{bk.publishedDate}}</td>
             </tr> 
         </tbody>
     </table>

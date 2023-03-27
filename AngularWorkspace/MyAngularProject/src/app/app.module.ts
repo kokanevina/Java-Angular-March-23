@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { TestcomponentComponent } from './testcomponent/testcomponent.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-
+import { OrderModule } from 'ngx-order-pipe' ;
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule// other modules, builtin, custom modules
+    AppRoutingModule, FormsModule, OrderModule// other modules, builtin, custom modules
   ],
   providers: [ 
       // custom services

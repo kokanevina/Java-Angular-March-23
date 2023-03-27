@@ -10,7 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { TestcomponentComponent } from './testcomponent/testcomponent.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { OrderModule } from 'ngx-order-pipe' ;
+import { OrderModule } from 'ngx-order-pipe';
+import { LengthPipe } from './CustomPipes/length.pipe';
+import { MypipePipe } from './mypipe.pipe' ;
+import { TestService } from './test.service';
+import { CharatPipe } from './CustomPipes/charat.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,14 +23,17 @@ import { OrderModule } from 'ngx-order-pipe' ;
     NavbarComponent,
     HomeComponent,
     TestcomponentComponent,
-    LoginComponent  // components, pipes, 
+    LoginComponent,
+    LengthPipe,
+    MypipePipe,
+    CharatPipe  // components, pipes
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, FormsModule, OrderModule// other modules, builtin, custom modules
   ],
   providers: [ 
-      // custom services
+      TestService
   ],
   bootstrap: [AppComponent]
 })

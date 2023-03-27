@@ -5,6 +5,7 @@ import { Book } from '../classes/book';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
+  
 })
 export class HomeComponent {
   numArray=[45,23,8,68,34,78,56,12,3,4,5];
@@ -19,6 +20,8 @@ export class HomeComponent {
 
   ngOnInit(){
     console.log("In Home Component init method");
+    console.log(this.sortCase);
+    
     console.log(this.systemType);
     setTimeout(()=> {this.systemType="Dynamic Distribute System";
     console.log(this.systemType);
@@ -56,7 +59,24 @@ export class HomeComponent {
       this.nodeType="password";
   }
   sortProperty="bookId";
+  sortType=false;
+  sortCase=false;
   makeOrder(property:string){
+   // console.log("current Property:"+property);
+    //console.log("previous Property:"+this.sortProperty);
+  /*   if(property==this.sortProperty)
+        this.sortType=!this.sortType;
+    else  
+        this.sortType=false;
+ */
+    property==this.sortProperty ? this.sortType=!this.sortType : this.sortType=false;
+
     this.sortProperty=property;
+  }
+
+  caseChange(){
+    this.sortCase=Boolean(this.sortCase);
+    console.log(this.sortCase);
+    console.log(typeof this.sortCase);
   }
 }

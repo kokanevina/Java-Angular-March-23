@@ -123,18 +123,21 @@ plethora of solutions which makes the work easier and faster.
     <h3>uppercase, lowercase, titlecase,slice pipe</h3>
     <table border="3">
         <thead>
-            <tr><th>Book Name</th><th>uppercase</th><th>lowercase</th>
-                <th>title case</th> <th>slice</th> <th>slice</th> <th>slice</th></tr>
+            <tr><th>Book Name</th><th>length</th><th>uppercase</th><th>lowercase</th>
+                <th>title case</th> <th>slice</th><th>length</th> <th>slice</th> <th>slice</th></tr>
         </thead>
         <tbody>
             <tr  *ngFor="let bk of bookArray">
                 <td>{{bk.bookName }}</td>
+                <td>{{bk.bookName | length}}</td>
                 <td>{{bk.bookName | uppercase}}</td>
                 <td>{{bk.bookName | lowercase}}</td>
                 <td>{{bk.bookName | titlecase}}</td>
-                <td>{{bk.bookName | slice:3}}</td>
+                <td>{{bk.bookName | slice:3 }}</td>
+                <td>{{bk.bookName | slice:3  | length}}</td>
                 <td>{{bk.bookName | slice:4:8}}</td>
                 <td>{{bk.bookName | slice:-3}}</td>
+                <td>{{bk.bookName | charat : 0}}</td>
             </tr> 
         </tbody>
     </table>
@@ -202,6 +205,11 @@ plethora of solutions which makes the work easier and faster.
             </tr> 
         </tbody>
     </table>
+    <label>CHOOSE CASE:</label>
+    <select  [(ngModel)]="sortCase" (change)="caseChange()">
+        <option value="">CASE SENSITIVE</option>
+        <option value="true">CASE IN-SENSITIVE</option>
+    </select>
     <table border="3">
         <thead>
             <tr><th (click)="makeOrder('bookId')">ID</th>
@@ -210,7 +218,7 @@ plethora of solutions which makes the work easier and faster.
                 <th (click)="makeOrder('publishedDate')">Published Date</th></tr>
         </thead>
         <tbody>
-            <tr  *ngFor="let bk of bookArray | orderBy :sortProperty">
+            <tr  *ngFor="let bk of bookArray | orderBy :sortProperty:sortType:sortCase">
                      <td>{{bk.bookId}}</td>
                     <td>{{bk.bookName}}</td>
                     <td>{{bk.bookPrice}}</td>

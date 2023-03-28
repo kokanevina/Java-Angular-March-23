@@ -1,35 +1,58 @@
 <div>
-    <form>
+    <form [formGroup]="registerForm" (submit)="register()">
         <table>
             <caption>Registration Form</caption>
             <tr>
                 <td><label>Enter First Name</label></td>
                 <td><input type="text" formControlName="firstName"></td>
             </tr>
+            <tr><td></td>
+                <div *ngIf="fname?.touched" class="errorDiv">
+                        <td *ngIf="fname?.errors?.['required']">This field is required</td>
+                        <td *ngIf="fname?.errors?.['pattern']">Name should have only characters</td>
+                </div>
+            </tr>
             <tr>
                 <td><label>Enter Last Name</label></td>
-                <td><input type="text"></td>
+                <td><input type="text" formControlName="lastName"></td>
+            </tr>
+            <tr><td></td>
+                <div *ngIf="lname?.touched" class="errorDiv">
+                        <td *ngIf="lname?.errors?.['required']">This field is required</td>
+                        <td *ngIf="lname?.errors?.['pattern']">Name should have only characters</td>
+                </div>
             </tr>
             <tr>
                 <td><label>Enter Email Id</label></td>
-                <td><input type="email"></td>
+                <td><input type="email" formControlName="emailId"></td>
+            </tr>
+            <tr><td></td>
+                <div *ngIf="?.touched" class="errorDiv">
+                        <td *ngIf="?.errors?.['required']">This field is required</td>
+                </div>
             </tr>
             <tr>
                 <td><label>Enter Mobile Number</label></td>
-                <td><input type="tel"></td>
+                <td><input type="tel" formControlName="mobileNumber"></td>
+            </tr>
+            <tr>
+                <td><label>Enter age </label></td>
+                <td><input type="number" formControlName="age"></td>
             </tr>
             <tr>
                 <td><label>Set Username</label></td>
-                <td><input type="text"></td>
+                <td><input type="text" formControlName="username"></td>
             </tr>
             <tr>
                 <td><label>Set new Password</label></td>
-                <td><input type="password"></td>
+                <td><input type="password" formControlName="password"></td>
             </tr>
             <tr>
                 <td><label>Confirm Password</label></td>
-                <td><input type="password"></td>
+                <td><input type="password" formControlName="confirmPassword"></td>
             </tr>
+            <tr><td></td><td><input type="submit" value="REGISTER"> 
+                <input type="reset" value="RESET"></td></tr>
         </table>
     </form>
 </div>

@@ -12,17 +12,19 @@ export class RegisterComponent {
    user=new User();
 
     namePattern='^[A-Za-z]*$';
+    mobilePattern='^[0-9]*$';
+    passwordPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{5,12}$";
    //namePattern1=new RegExp('^[A-Za-z]*$');
    constructor(){
     this.registerForm=new FormGroup({
       firstName:new FormControl("",[Validators.required, Validators.pattern(this.namePattern)]),
       lastName:new FormControl("",[Validators.required, Validators.pattern(this.namePattern)]),
-      emailId:new FormControl(""),
-      mobileNumber:new FormControl(""),
-      username:new FormControl(""),
-      password:new FormControl(""),
-      confirmPassword:new FormControl(""),
-      age:new FormControl("")
+      emailId:new FormControl("",[Validators.required,Validators.email]),
+      mobileNumber:new FormControl("",[Validators.required,Validators.minLength(10),Validators.maxLength(10), Validators.pattern(this.mobilePattern)]),
+      username:new FormControl("",[Validators.required,Validators.minLength(2)]),
+      password:new FormControl("",[Validators.required,Validators.pattern(this.passwordPattern)]),
+      confirmPassword:new FormControl("",[Validators.required]),
+      age:new FormControl("",[Validators.required,Validators.min(20),Validators.max(40)])
     });
    }
    
@@ -31,6 +33,24 @@ export class RegisterComponent {
    }
    get lname(){
     return this.registerForm.get('lastName');
+   }
+   get eid(){
+    return this.registerForm.get('emailId');
+   }
+   get mobile(){
+    return this.registerForm.get('mobileNumber');
+   }
+   get uname(){
+    return this.registerForm.get('username');
+   }
+   get pass(){
+    return this.registerForm.get('password');
+   }
+   get cpass(){
+    return this.registerForm.get('confirmPassword');
+   }
+   get ag(){
+    return this.registerForm.get('age');
    }
 
    register(){
@@ -53,7 +73,23 @@ export class RegisterComponent {
 /*emptyFieldCheck(){
   // extracting value of formcontrol
   if(!reg.test(v))
-    return { 'pattern':true}
+    return { 'pattern':value}
+  else
+    null
+}*/
+
+/*emptyFieldCheck(){
+  // extracting value of formcontrol
+  if(!@, @c)
+    return { 'email':value}
+  else
+    null
+}*/
+
+/*emptyFieldCheck(){
+  // extracting value of formcontrol
+  if(v.length<10)
+    return { 'minlength':value}
   else
     null
 }*/

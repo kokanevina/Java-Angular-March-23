@@ -27,29 +27,69 @@
                 <td><input type="email" formControlName="emailId"></td>
             </tr>
             <tr><td></td>
-                <div *ngIf="?.touched" class="errorDiv">
-                        <td *ngIf="?.errors?.['required']">This field is required</td>
+                <div *ngIf="eid?.touched" class="errorDiv">
+                        <td *ngIf="eid?.errors?.['required']">This field is required</td>
+                        <td *ngIf="eid?.errors?.['email']">Please enter valid email id</td>
                 </div>
             </tr>
             <tr>
                 <td><label>Enter Mobile Number</label></td>
                 <td><input type="tel" formControlName="mobileNumber"></td>
             </tr>
+            <tr><td></td>
+                <div *ngIf="mobile?.touched" class="errorDiv">
+                        <td *ngIf="mobile?.errors?.['required']">This field is required</td>
+                        <td *ngIf="mobile?.errors?.['minlength'] || mobile?.errors?.['maxlength']">Please enter 10 digit mobile number</td>
+                        <td *ngIf="mobile?.errors?.['pattern']">Please enter valid mobile number</td>
+                    </div>
+            </tr>
             <tr>
                 <td><label>Enter age </label></td>
                 <td><input type="number" formControlName="age"></td>
+            </tr>
+            <tr><td></td>
+                <div *ngIf="ag?.touched" class="errorDiv">
+                        <td *ngIf="ag?.errors?.['required']">This field is required</td>
+                        <td *ngIf="ag?.errors?.['min'] || ag?.errors?.['max']">Age must be between 20 to 40 years</td>           
+               </div>
             </tr>
             <tr>
                 <td><label>Set Username</label></td>
                 <td><input type="text" formControlName="username"></td>
             </tr>
+            <tr><td></td>
+                <div *ngIf="uname?.touched" class="errorDiv">
+                        <td *ngIf="uname?.errors?.['required']">This field is required</td>
+                        <td *ngIf="uname?.errors?.['minlength']">username should have atleast 2 characters</td>           
+               </div>
+            </tr>
             <tr>
                 <td><label>Set new Password</label></td>
-                <td><input type="password" formControlName="password"></td>
+                <td><input type="text" formControlName="password"></td>
+            </tr>
+            <tr><td></td>
+                <div *ngIf="pass?.touched" class="errorDiv">
+                        <td *ngIf="pass?.errors?.['required']">This field is required</td>
+                        <td *ngIf="pass?.errors?.['pattern']">
+                        <span>Password must have atleast one </span>
+                        <ol>
+                            <li>Capital Letter</li>
+                            <li>Small Letter</li>
+                            <li>Digit</li>
+                            <li>Special Symbol (list symbols here)</li>
+                        </ol>
+                        <span>Password must be 5 to 12 characters long</span>
+                        </td>           
+               </div>
             </tr>
             <tr>
                 <td><label>Confirm Password</label></td>
                 <td><input type="password" formControlName="confirmPassword"></td>
+            </tr>
+            <tr><td></td>
+                <div *ngIf="cpass?.touched" class="errorDiv">
+                        <td *ngIf="cpass?.errors?.['required']">This field is required</td>
+               </div>
             </tr>
             <tr><td></td><td><input type="submit" value="REGISTER"> 
                 <input type="reset" value="RESET"></td></tr>

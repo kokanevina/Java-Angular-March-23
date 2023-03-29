@@ -31,7 +31,6 @@ export class AuthorDetailsComponent {
     
       this.findAuthor();
  }
-
   findAuthor(){
     this.author=this.authorMap.get(this.bookId);
   }

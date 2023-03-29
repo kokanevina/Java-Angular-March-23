@@ -16,6 +16,7 @@ import { MypipePipe } from './mypipe.pipe' ;
 import { TestService } from './test.service';
 import { CharatPipe } from './CustomPipes/charat.pipe';
 import { RegisterComponent } from './register/register.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { RegisterComponent } from './register/register.component';
     LengthPipe,
     MypipePipe,
     CharatPipe,
-    RegisterComponent  // components, pipes
+    RegisterComponent,
+    AuthorDetailsComponent  // components, pipes
   ],
   imports: [
     BrowserModule,

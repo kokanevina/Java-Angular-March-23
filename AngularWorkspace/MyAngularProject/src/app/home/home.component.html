@@ -48,6 +48,7 @@ plethora of solutions which makes the work easier and faster.
                 <td>{{bk.bookName}}</td>
                 <td>{{bk.bookPrice}}</td>
                 <td>{{bk.publishedDate}}</td>
+                <td><a [routerLink]="['/authordetails',bk.bookId]">SHOW AUTHOR DETAILS</a></td>
             </tr> 
         </tbody>
     </table>

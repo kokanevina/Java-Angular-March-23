@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl, Validators } from '@angular/forms';
+import { FormGroup,FormControl, Validators,  AbstractControl } from '@angular/forms';
 import { User } from '../classes/user';
 @Component({
   selector: 'app-register',
@@ -23,9 +23,9 @@ export class RegisterComponent {
       mobileNumber:new FormControl("",[Validators.required,Validators.minLength(10),Validators.maxLength(10), Validators.pattern(this.mobilePattern)]),
       username:new FormControl("",[Validators.required,Validators.minLength(2)]),
       password:new FormControl("",[Validators.required,Validators.pattern(this.passwordPattern)]),
-      confirmPassword:new FormControl("",[Validators.required]),
+      confirmPassword:new FormControl("",[Validators.required, matchPassword]),
       age:new FormControl("",[Validators.required,Validators.min(20),Validators.max(40)])
-    });
+    } );
    }
    
     get fname(){
@@ -59,7 +59,36 @@ export class RegisterComponent {
       console.log(fname);
      // this.user=this.registerForm;
    }
+
+  
+}// end
+
+// custom validation function
+function matchPassword(control:AbstractControl):{[key:string]:any}|null{
+//console.log("New Password:"+control.parent?.value.password);
+//console.log("Confirm Password:"+control.value);
+if(control.parent?.value.password!=control.value)
+  return {'match':true}
+else
+  return null;
 }
+
+
+
+
+/* 
+function passwordMatch(control: AbstractControl): {[key: string]: any} | null  {
+  let fg=control.parent;
+  console.log(fg?.value.password);
+  console.log(fg?.value.confirmPassword);
+  if(fg?.value.password!=fg?.value.confirmPassword)
+    return {'match':true}
+  else
+    return null;
+}
+ */
+
+
 
 
 /*emptyFieldCheck(){

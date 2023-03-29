@@ -65,7 +65,7 @@
             </tr>
             <tr>
                 <td><label>Set new Password</label></td>
-                <td><input type="text" formControlName="password"></td>
+                <td><input type="password" formControlName="password"></td>
             </tr>
             <tr><td></td>
                 <div *ngIf="pass?.touched" class="errorDiv">
@@ -89,9 +89,10 @@
             <tr><td></td>
                 <div *ngIf="cpass?.touched" class="errorDiv">
                         <td *ngIf="cpass?.errors?.['required']">This field is required</td>
+                        <td *ngIf="cpass?.errors?.['match']">Both Password must match</td>
                </div>
             </tr>
-            <tr><td></td><td><input type="submit" value="REGISTER"> 
+            <tr><td></td><td><input type="submit" value="REGISTER" [disabled]="registerForm.invalid"> 
                 <input type="reset" value="RESET"></td></tr>
         </table>
     </form>

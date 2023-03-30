@@ -1,0 +1,24 @@
+<div>
+    <h2>Addtion of Numbers</h2>
+<div>
+    <label>Enter Number 1:</label>
+    <input type="number" [(ngModel)]="num1">
+    <label>Enter Number 2:</label>
+    <input type="number" [(ngModel)]="num2">
+    <label>Enter Number 3:</label>
+    <input type="number" [(ngModel)]="num3">
+    <button (click)="add()">ADD</button>
+</div>
+<div>
+    <p>
+        <b>Result is: {{sumResult}}</b>
+    </p>
+</div>
+</div>
+<div>
+    <h2>Counter value from Service</h2>
+    <b>Counter is : {{addcompCounter}}</b>
+    <button (click)="getCounter()">INCREMENT</button>
+</div>
+
+

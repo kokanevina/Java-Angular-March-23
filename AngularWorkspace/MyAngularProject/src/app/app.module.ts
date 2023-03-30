@@ -18,6 +18,10 @@ import { CharatPipe } from './CustomPipes/charat.pipe';
 import { RegisterComponent } from './register/register.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
+import { MathematicsService } from './myservices/mathematics.service';
+import { AddComponentComponent } from './add-component/add-component.component';
+import { SubComponentComponent } from './sub-component/sub-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,14 +36,17 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     CharatPipe,
     RegisterComponent,
     AuthorDetailsComponent,
-    BookDetailsComponent  // components, pipes
+    BookDetailsComponent,
+    ViewNotFoundComponent,
+    AddComponentComponent,
+    SubComponentComponent  // components, pipes
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, FormsModule, OrderModule,ReactiveFormsModule  // other modules, builtin, custom modules
   ],
   providers: [ 
-      TestService
+    MathematicsService
   ],
   bootstrap: [AppComponent]
 })

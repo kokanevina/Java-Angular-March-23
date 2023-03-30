@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TestcomponentComponent } from './testcomponent/testcomponent.component';
+import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
 
 const routes: Routes = [
   { path:'home',component:HomeComponent, children:
@@ -19,7 +20,8 @@ const routes: Routes = [
   },
   { path:'register',component:RegisterComponent },
   { path:'authordetails/:bid', component:AuthorDetailsComponent},
-  { path:'',component:HomeComponent}
+  { path:'',component:HomeComponent},
+  { path:'**',component:ViewNotFoundComponent}
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ const routes: Routes = [
   { path:'login',component:LoginComponent
   },
   { path:'register',component:RegisterComponent },
-  { path:'authordetails/:bid', component:AuthorDetailsComponent},
+  { path:'authordetails/:bid', component:AuthorDetailsComponent },
   { path:'',component:HomeComponent},
   { path:'**',component:ViewNotFoundComponent}
 ];

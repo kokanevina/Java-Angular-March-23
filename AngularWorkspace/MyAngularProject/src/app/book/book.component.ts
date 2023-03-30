@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from '../classes/book';
+import { CRUDService } from '../myservices/crud.service';
+
 
 @Component({
   selector: 'app-book',
@@ -7,6 +9,9 @@ import { Book } from '../classes/book';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent {
+  constructor(private crudService:CRUDService){
+    
+  }
   book=new Book();
   bookArray=new Array<Book>(new Book(2,"LeArn JavA",560.76,new Date('2 Feb 2000')),
   new Book(5,"JAVA Basics",660567.653897,new Date('20 Feb 2000')),
@@ -15,13 +20,13 @@ export class BookComponent {
   new Book(1,"Web FundaMENtals",650.456,new Date('15 March 2004')));
   
   addBook(){
-   let book1=new Book(this.book.bookId,this.book.bookName,this.book.bookPrice,this.book.publishedDate);
-    this.bookArray.push(book1);
-    console.log("Array Contents are:");
-    console.log(this.bookArray);
-    // forEach function is part of js
-    // no need to use for loop / for of loop
-    this.bookArray.forEach(bk=>console.log(bk)) // on console
+   let book1=new Book(this.book.id,this.book.bookName,this.book.bookPrice,this.book.publishedDate);
+    this.bookArray.push(book1); // this book given to front end array
+    // same book we will send to backend to store in json file
+   this.crudService.addBook(book1).subscribe({
+    next:(res)=>console.log(res),
+    error:(res)=>console.log(res)
+   });
   }
   sortProperty="bookId";
   sortType=false;

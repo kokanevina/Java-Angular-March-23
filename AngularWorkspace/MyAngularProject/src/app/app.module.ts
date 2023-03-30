@@ -22,6 +22,7 @@ import { AddComponentComponent } from './add-component/add-component.component';
 import { SubComponentComponent } from './sub-component/sub-component.component';
 import { CounterComponentComponent } from './counter-component/counter-component.component';
 import { BookComponent } from './book/book.component';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,7 @@ import { BookComponent } from './book/book.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule, OrderModule,ReactiveFormsModule  // other modules, builtin, custom modules
+    AppRoutingModule, FormsModule, OrderModule,ReactiveFormsModule,HttpClientModule  // other modules, builtin, custom modules
   ],
   providers: [ 
     MathematicsService

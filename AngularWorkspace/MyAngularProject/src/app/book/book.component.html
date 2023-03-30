@@ -2,7 +2,7 @@
     <h2>Book Input Form</h2>
     <div>
         <label>Enter Book Id</label>
-        <input type="number" [(ngModel)]="book.bookId">
+        <input type="number" [(ngModel)]="book.id">
     </div>
     <div>
         <label>Enter Book Name</label>
@@ -26,11 +26,11 @@
         </thead>
         <tbody>
             <tr  *ngFor="let bk of bookArray">
-                <td>{{bk.bookId}}</td>
+                <td>{{bk.id}}</td>
                 <td>{{bk.bookName}}</td>
                 <td>{{bk.bookPrice}}</td>
                 <td>{{bk.publishedDate}}</td>
-                <td><a [routerLink]="['/authordetails',bk.bookId]">SHOW AUTHOR DETAILS</a></td>
+                <td><a [routerLink]="['/authordetails',bk.id]">SHOW AUTHOR DETAILS</a></td>
             </tr> 
         </tbody>
     </table>
@@ -52,7 +52,7 @@
             <tr  *ngFor="let bk of bookArray">
                 <span *ngIf="bk.bookName.toLowerCase().includes('java') then bookthenpart else bookelsepart"></span>
                 <ng-template #bookthenpart>
-                     <td>{{bk.bookId}}</td>
+                     <td>{{bk.id}}</td>
                     <td>{{bk.bookName}}</td>
                     <td>{{bk.bookPrice}}</td>
                     <td>{{bk.publishedDate}}</td>
@@ -136,7 +136,7 @@
         </thead>
         <tbody>
             <tr  *ngFor="let bk of bookArray ">
-                     <td>{{bk.bookId}}</td>
+                     <td>{{bk.id}}</td>
                     <td>{{bk.bookName}}</td>
                     <td>{{bk.bookPrice}}</td>
                     <td>{{bk.publishedDate}}</td>

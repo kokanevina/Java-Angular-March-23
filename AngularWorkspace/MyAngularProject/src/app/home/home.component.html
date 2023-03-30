@@ -16,71 +16,7 @@ plethora of solutions which makes the work easier and faster.
 <br>
 <input type="text" [(ngModel)]="systemType" (blur)="display()"> <!-- View side model: systemType:updated-->
 </p>
-<div>
-    <h2>Book Input Form</h2>
-    <div>
-        <label>Enter Book Id</label>
-        <input type="number" [(ngModel)]="book.bookId">
-    </div>
-    <div>
-        <label>Enter Book Name</label>
-        <input type="text"  [(ngModel)]="book.bookName">
-    </div>
-    <div>
-        <label>Enter Book Price</label>
-        <input type="number"  [(ngModel)]="book.bookPrice">
-    </div>
-    <div>
-        <label>Enter Book Published Date</label>
-        <input type="date"  [(ngModel)]="book.publishedDate">
-    </div>
-    <button (click)="addBook()">COLLECT BOOK DETAILS</button>
-</div>
-<div>
-    <h3>BOOK DETAILS</h3>
-    <table border="3">
-        <thead>
-            <tr><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let bk of bookArray">
-                <td>{{bk.bookId}}</td>
-                <td>{{bk.bookName}}</td>
-                <td>{{bk.bookPrice}}</td>
-                <td>{{bk.publishedDate}}</td>
-                <td><a [routerLink]="['/authordetails',bk.bookId]">SHOW AUTHOR DETAILS</a></td>
-            </tr> 
-        </tbody>
-    </table>
-    <nav>
-        <a routerLink="bookdetails">Show Extra Book Details</a>
-        <a routerLink="testpath">test link</a>
-    </nav>
-    <h3>This is dynamic view of HomeComponent</h3>
-    <div style="border: 15px double darkgreen;">
-   
-        <router-outlet></router-outlet> <!-- Child Dynamic View-->    
-    </div>
-    <table border="3">
-        <thead>
-            <tr><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let bk of bookArray">
-                <span *ngIf="bk.bookName.toLowerCase().includes('java') then bookthenpart else bookelsepart"></span>
-                <ng-template #bookthenpart>
-                     <td>{{bk.bookId}}</td>
-                    <td>{{bk.bookName}}</td>
-                    <td>{{bk.bookPrice}}</td>
-                    <td>{{bk.publishedDate}}</td>
-                </ng-template> 
-                <ng-template #bookelsepart>
 
-                </ng-template>
-            </tr> 
-        </tbody>
-    </table>
-</div>
 <div>
     <h3>VOTER FORM</h3>
     <label>Enter Age:</label>
@@ -129,113 +65,12 @@ plethora of solutions which makes the work easier and faster.
 </div>
 <hr>
 <div>
-    <h2>WORKING WITH PIPES</h2>
-    <h3>uppercase, lowercase, titlecase,slice pipe</h3>
-    <table border="3">
-        <thead>
-            <tr><th>Book Name</th><th>length</th><th>uppercase</th><th>lowercase</th>
-                <th>title case</th> <th>slice</th><th>length</th> <th>slice</th> <th>slice</th></tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let bk of bookArray">
-                <td>{{bk.bookName }}</td>
-                <td>{{bk.bookName | length}}</td>
-                <td>{{bk.bookName | uppercase}}</td>
-                <td>{{bk.bookName | lowercase}}</td>
-                <td>{{bk.bookName | titlecase}}</td>
-                <td>{{bk.bookName | slice:3 }}</td>
-                <td>{{bk.bookName | slice:3  | length}}</td>
-                <td>{{bk.bookName | slice:4:8}}</td>
-                <td>{{bk.bookName | slice:-3}}</td>
-                <td>{{bk.bookName | charat : 0}}</td>
-            </tr> 
-        </tbody>
-    </table>
-    <h3>number, currency pipe</h3>
-    <table border="3">
-        <thead>
-            <tr><th>Book Price</th><th>number pipe</th><th>number pipe</th>
-               </tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let bk of bookArray">
-                <td>{{bk.bookPrice}}</td>
-                <td>{{bk.bookPrice |number}}</td> <!-- maximum 3 d after d.p.-->
-                <td>{{bk.bookPrice |number: '4.1-2'}}</td>
-                <td>{{bk.bookPrice | currency}}</td>  <!-- $, exact 2 d after d.p.-->
-                <td>{{bk.bookPrice | currency : 'INR'}}</td>
-                <td>{{bk.bookPrice | currency : 'INR' : 'code' }}</td>
-                <td>{{bk.bookPrice | currency : 'INR' : 'code' : '5.1-4'}}</td>
-            </tr> 
-        </tbody>
-    </table>
-    <table border="3">
-        <thead>
-            <tr><th>DATE</th>
-               </tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let bk of bookArray">
-                <td>{{bk.publishedDate}}</td> <!-- full-->
-                <td>{{bk.publishedDate | date}}</td> <!-- medium date-->
-                <td>{{bk.publishedDate | date: 'mediumDate'}}</td>
-                <td>{{bk.publishedDate | date: 'shortDate'}}</td>
-                <td>{{bk.publishedDate | date: 'longDate'}}</td>
-                <td>{{bk.publishedDate | date: 'fullDate'}}</td>
-                <td>{{bk.publishedDate | date: 'mediumTime'}}</td>
-                <td>{{bk.publishedDate | date: 'shortTime'}}</td>
-                <td>{{bk.publishedDate | date: 'fullTime'}}</td>
-                <td>{{bk.publishedDate | date: 'medium'}}</td>
-                <td>{{bk.publishedDate | date: 'short'}}</td>
-                <td>{{bk.publishedDate | date: 'full'}}</td>
-                <td>{{bk.publishedDate | date: 'dd/MM/yyyy'}}</td>
-            </tr> 
-        </tbody>
-    </table>
-</div>
-<div>
     <h2>original array</h2>
     <b *ngFor="let num of numArray" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
     <h2>sorted array</h2>
     <b *ngFor="let num of numArray | orderBy" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
     <h2>sorted array</h2>
     <b *ngFor="let num of numArray | orderBy :'':true" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
-</div>
-<div>
-    <table border="3">
-        <thead>
-            <tr><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let bk of bookArray ">
-                     <td>{{bk.bookId}}</td>
-                    <td>{{bk.bookName}}</td>
-                    <td>{{bk.bookPrice}}</td>
-                    <td>{{bk.publishedDate}}</td>
-            </tr> 
-        </tbody>
-    </table>
-    <label>CHOOSE CASE:</label>
-    <select  [(ngModel)]="sortCase" (change)="caseChange()">
-        <option value="">CASE SENSITIVE</option>
-        <option value="true">CASE IN-SENSITIVE</option>
-    </select>
-    <table border="3">
-        <thead>
-            <tr><th (click)="makeOrder('bookId')">ID</th>
-                <th (click)="makeOrder('bookName')">NAME</th>
-                <th (click)="makeOrder('bookPrice')">PRICE</th>
-                <th (click)="makeOrder('publishedDate')">Published Date</th></tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let bk of bookArray | orderBy :sortProperty:sortType:sortCase">
-                     <td>{{bk.bookId}}</td>
-                    <td>{{bk.bookName}}</td>
-                    <td>{{bk.bookPrice}}</td>
-                    <td>{{bk.publishedDate}}</td>
-            </tr> 
-        </tbody>
-    </table>
 </div>
 <hr>
 <h2>MVC</h2>

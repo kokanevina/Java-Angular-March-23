@@ -21,6 +21,7 @@ import { MathematicsService } from './myservices/mathematics.service';
 import { AddComponentComponent } from './add-component/add-component.component';
 import { SubComponentComponent } from './sub-component/sub-component.component';
 import { CounterComponentComponent } from './counter-component/counter-component.component';
+import { BookComponent } from './book/book.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { CounterComponentComponent } from './counter-component/counter-component
     ViewNotFoundComponent,
     AddComponentComponent,
     SubComponentComponent,
-    CounterComponentComponent  // components, pipes
+    CounterComponentComponent,
+    BookComponent  // components, pipes
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { MathematicsService } from '../myservices/mathematics.service';
 
 @Component({
@@ -6,12 +6,15 @@ import { MathematicsService } from '../myservices/mathematics.service';
   templateUrl: './add-component.component.html',
   styleUrls: ['./add-component.component.css']
 })
-export class AddComponentComponent {
+export class AddComponentComponent  implements  OnChanges{
 num1=0;num2=0;num3=0;
 sumResult=0;
 addcompCounter=this.mathService.counter;
+@Input()
+arrayFromParent:number[]=[];
+len=0;
 constructor(private mathService:MathematicsService){
-
+this.len=this.arrayFromParent.length;
 } 
 
 add(){
@@ -21,5 +24,14 @@ add(){
 
 getCounter(){
  this.addcompCounter= this.mathService.incrementCounter();
+}
+ngOnChanges(){
+  console.log("in add component onchanges method");
+}
+ngDoCheck(){
+  console.log("in add doCheck method");
+  if(this.len<this.arrayFromParent.length)
+    console.log("Array changes detected");
+    
 }
 }

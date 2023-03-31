@@ -1,8 +1,14 @@
 <nav class="myNav">
     <h3>{{links}}</h3>
     <ol class="myFlex">
+        <li class="colorClass decorationClass fontClass"><a routerLink="home">{{projectNamefromParent}}</a></li>
         <li class="colorClass decorationClass fontClass"><a routerLink="home">HOME</a> </li>
         <li [ngClass]="classArray"><a routerLink="showbooks">Show Book Basic Details</a></li>
         <li [ngClass]="classArray"><a routerLink="login">LOGIN</a></li>    
     </ol>
 </nav>
+<div>
+    <p>{{companyName}}</p>
+    <label>Enter company name:</label>
+    <input type="text" [(ngModel)]="companyName"> <!-- bind blur event and call child function, from function, call emit event-->
+</div>

@@ -7,7 +7,7 @@ import { Book } from '../classes/book';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  numArray=[45,23,8,68,34,78,56,12,3,4,5];
+  numArray=[45,23,8,68,34];
   systemType="distributed system";
   age=0;
   percentage=0;
@@ -39,4 +39,5 @@ export class HomeComponent {
       this.nodeType="password";
   }
   
+ 
 }

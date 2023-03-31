@@ -1,8 +1,9 @@
 <div>
-    <h2>Book Input Form</h2>
+    <h2>Book Input / UPDATE Form</h2>
     <div>
         <label>Enter Book Id</label>
         <input type="number" [(ngModel)]="book.id">
+        <span>do not change id when updating a book</span>
     </div>
     <div>
         <label>Enter Book Name</label>
@@ -17,9 +18,40 @@
         <input type="date"  [(ngModel)]="book.publishedDate">
     </div>
     <button (click)="addBook()">COLLECT BOOK DETAILS</button>
+    <button (click)="updateBook()">UPDATE BOOK</button>
 </div>
 <div>
-    <h3>BOOK DETAILS</h3>
+    <h3>BOOK DETAILS (Back end Data)</h3>
+    <table border="3" class="table table-bordered">
+        <thead>
+            <tr class="bg-info"><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let bk of bookArray1">
+                <td class="bg-success">{{bk.id}}</td>
+                <td>{{bk.bookName}}</td>
+                <td>{{bk.bookPrice}}</td>
+                <td>{{bk.publishedDate}}</td>
+                <td><button (click)="deleteBook(bk.id)">DELETE</button></td>
+                <td><button (click)="getBook(bk)">EDIT</button></td>
+            </tr> 
+        </tbody>
+    </table>
+</div>
+<div>
+    <label>Enter id to search book</label>
+    <input type="number" #numberNode> <button class="btn btn-primary" (click)="searchBook(numberNode.value)">SEARCH</button>
+    <div>
+        <table>
+            <tr><th>ID:</th><td>{{searchedBook.id}}</td></tr>
+            <tr><th>NAME:</th><td>{{searchedBook.bookName}}</td></tr>
+            <tr><th>PRICE:</th><td>{{searchedBook.bookPrice}}</td></tr>
+            <tr><th>DATE OF PUBLISH:</th><td>{{searchedBook.publishedDate}}</td></tr>
+        </table>
+    </div>
+</div>
+<div>
+    <h3>BOOK DETAILS (Front end Data)</h3>
     <table border="3">
         <thead>
             <tr><th>ID</th><th>NAME</th><th>PRICE</th><th>Published Date</th></tr>

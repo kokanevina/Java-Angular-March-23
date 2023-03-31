@@ -45,7 +45,7 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule, OrderModule,ReactiveFormsModule,HttpClientModule  // other modules, builtin, custom modules
+    AppRoutingModule,FormsModule, OrderModule,ReactiveFormsModule,HttpClientModule  // other modules, builtin, custom modules
   ],
   providers: [ 
     MathematicsService

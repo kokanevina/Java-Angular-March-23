@@ -67,6 +67,7 @@ plethora of solutions which makes the work easier and faster.
 <div>
     <h2>original array</h2>
     <b *ngFor="let num of numArray" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
+    <button (click)="numArray.push(888)">PUSH</button>
     <h2>sorted array</h2>
     <b *ngFor="let num of numArray | orderBy" [ngStyle]="{border:'2px solid red', padding:'5px'}">{{num}}</b>
     <h2>sorted array</h2>
@@ -75,7 +76,7 @@ plethora of solutions which makes the work easier and faster.
 <hr>
 <h2>MVC</h2>
 <h3>Add Component</h3>
-<app-add-component></app-add-component>
+<app-add-component [arrayFromParent]="numArray"></app-add-component>
 <h3>Sub Component</h3>
 <app-sub-component></app-sub-component>
 <h3>Counter Component</h3>

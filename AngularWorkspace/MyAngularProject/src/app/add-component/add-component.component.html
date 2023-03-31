@@ -20,5 +20,11 @@
     <b>Counter is : {{addcompCounter}}</b>
     <button (click)="getCounter()">INCREMENT</button>
 </div>
-
-
+<div>
+    <h3>Array from parent</h3>
+    <ul>
+        <li *ngFor="let num of arrayFromParent">
+            {{num}}
+        </li>
+    </ul>
+</div>

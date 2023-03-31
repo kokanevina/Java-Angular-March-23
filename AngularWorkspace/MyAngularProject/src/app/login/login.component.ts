@@ -33,4 +33,8 @@ export class LoginComponent {
     console.log(logForm.value.username);
     console.log(logForm.value.password);
   }
+  ngOnDestroy(){
+    console.log("in login ngOnDestory method");
+    
+  }
 }

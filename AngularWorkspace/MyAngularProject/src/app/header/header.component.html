@@ -1,5 +1,10 @@
 <header class="myHeader" style="font-size: 16px;"> <!-- inline style-->
     <h1 [ngStyle]="headStyleObject">NEOSOFT EMPLOYEE MANAGEMENT PROJECT</h1>
+    <label>Enter project name:</label><input type="text" [(ngModel)]="projectName">
     <h2>{{projectName}}</h2>
-    <app-nav></app-nav> <!-- component directive-->
+    <h2>{{companyNameFromChild}}</h2>
+    <label>Enter company name:</label>
+    <input type="text" [(ngModel)]="companyNameFromChild">
+    <app-nav [projectNamefromParent]="projectName"    (emitter)="getChildData($event)"  ></app-nav> <!-- component directive-->
 </header>
+

@@ -13,4 +13,20 @@ export class CRUDService {
   addBook(book:Book){
       return this.httpService.post(this.url,book);
   }
+  getAllBooks(){
+    return this.httpService.get(this.url);
+  }
+  deleteBookById(id:number){
+    //return this.httpService.delete(`${this.url}/${id}`);
+    return this.httpService.delete(this.url+"/"+id);
+  }
+  udpateBookById(bk:Book){
+    console.log("inside method");
+    console.log(bk);
+    console.log("inside method");
+     return this.httpService.put(this.url+"/"+bk.id,bk);
+  }
+  getBookById(id:number){
+    return this.httpService.get(this.url+"/"+id);
+  }
 }

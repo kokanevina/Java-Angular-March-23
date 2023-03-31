@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 projectName="EMPLOYEE MANAGEMENT";
-
+companyNameFromChild="";
   headStyleObject={
       backgroundColor:'grey',
       color :'yellow',
@@ -24,5 +24,8 @@ projectName="EMPLOYEE MANAGEMENT";
     this.i++;
     if(this.i==this.colorArray.length)
       this.i=0;
+  }
+  getChildData(data:any){
+    this.companyNameFromChild=data;  // data from child is assigned to parent variable
   }
 }

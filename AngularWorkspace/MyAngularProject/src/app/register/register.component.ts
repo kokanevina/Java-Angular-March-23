@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup,FormControl, Validators,  AbstractControl } from '@angular/forms';
 import { User } from '../classes/user';
+import { UserCrudService } from '../myservices/user-crud.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,7 +16,7 @@ export class RegisterComponent {
     mobilePattern='^[0-9]*$';
     passwordPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{5,12}$";
    //namePattern1=new RegExp('^[A-Za-z]*$');
-   constructor(){
+   constructor(private usercrud:UserCrudService){
     this.registerForm=new FormGroup({
       firstName:new FormControl("",[Validators.required, Validators.pattern(this.namePattern)]),
       lastName:new FormControl("",[Validators.required, Validators.pattern(this.namePattern)]),
@@ -57,7 +58,18 @@ export class RegisterComponent {
       console.log(this.registerForm);
       let fname=this.registerForm.value.firstName;
       console.log(fname);
-     // this.user=this.registerForm;
+      this.user.firstName=this.registerForm.value.firstName;
+      this.user.lastName=this.registerForm.value.lastName;
+      this.user.mobileNumber=this.registerForm.value.mobileNumber; 
+      this.user.emailId=this.registerForm.value.emailId;
+      this.user.age=this.registerForm.value.age;
+      this.user.username=this.registerForm.value.username;
+      this.user.password=this.registerForm.value.password;
+
+    this.usercrud.addUser(this.user).subscribe({
+      next:(res)=>window.alert("You are registered Successfully...."),
+      error:(res)=>console.log(res)
+    });
    }
 
   

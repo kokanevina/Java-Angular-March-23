@@ -8,11 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
+import { CanactivateguardService } from './myservices/canactivateguard.service';
 
 const routes: Routes = [
   { path:'home',component:HomeComponent}
   ,
-  { path:'showbooks', component:BookComponent,children:
+  { path:'showbooks', component:BookComponent,canActivate:[CanactivateguardService],  children:
   [
     {path:'bookdetails', component:BookDetailsComponent}
   ]},

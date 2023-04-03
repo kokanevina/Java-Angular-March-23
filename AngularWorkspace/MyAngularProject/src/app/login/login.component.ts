@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserCrudService } from '../myservices/user-crud.service';
+import { User } from '../classes/user';
+import { LoginService } from '../myservices/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +12,8 @@ export class LoginComponent {
   username="";
   password="";
   age=0;
+  userArray:User[]=[];
+  constructor(private usercrud:UserCrudService, private loginService:LoginService){}
   collectData(){
     console.log(this.username);
     console.log(this.password);
@@ -26,15 +31,22 @@ export class LoginComponent {
   }
 
   collectData3(logForm:any){
-    console.log("hi"+this.username);
-    console.log("hi"+this.password);
-    console.log(logForm); // pass this logForm at backend to check validity of user
-    console.log(logForm.value.age);
-    console.log(logForm.value.username);
-    console.log(logForm.value.password);
+    this.username=logForm.value.username;
+    this.password=logForm.value.password;
+   
+    this.usercrud.getAllUsers().subscribe({
+      next:(res)=>{
+        this.userArray=res as User[]; 
+       /*  console.log(this.userArray);  */
+       this.loginService.login(this.userArray,this.username,this.password);
+      },
+      error:(res)=>console.log(res)
+    });
+
   }
   ngOnDestroy(){
     console.log("in login ngOnDestory method");
     
   }
+  
 }

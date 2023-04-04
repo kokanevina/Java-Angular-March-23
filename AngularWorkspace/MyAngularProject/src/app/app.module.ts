@@ -23,6 +23,9 @@ import { SubComponentComponent } from './sub-component/sub-component.component';
 import { CounterComponentComponent } from './counter-component/counter-component.component';
 import { BookComponent } from './book/book.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LibraryModule } from './library/library.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,11 +44,12 @@ import {HttpClientModule} from '@angular/common/http';
     AddComponentComponent,
     SubComponentComponent,
     CounterComponentComponent,
-    BookComponent  // components, pipes
+    BookComponent
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule, OrderModule,ReactiveFormsModule,HttpClientModule  // other modules, builtin, custom modules
+    AppRoutingModule,FormsModule, OrderModule,ReactiveFormsModule,HttpClientModule, LibraryModule, BrowserAnimationsModule // other modules, builtin, custom modules
   ],
   providers: [ 
     MathematicsService
